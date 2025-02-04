@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Tools - Learning Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #333;
+            padding: 1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .tool-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .comments-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ddd;
+        }
+        .comment-form {
+            margin: 20px 0;
+        }
+        .comment-box {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 8px;
+        }
+        .comment {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #333;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 40px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="devops-tools.html">DevOps Tools</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h1>Advance DevOps Tools Guide</h1>
+        
+        <div class="tool-section">
+            <h2>1. Version Control - Git</h2>
+            <p>Git is the most widely used version control system. It helps track changes in source code during software development.</p>
+            <ul>
+                <li>Basic commands: git init, git clone, git add, git commit, git push</li>
+                <li>Branching and merging capabilities</li>
+                <li>Distributed development support</li>
+            </ul>
+        </div>
+
+        <div class="tool-section">
+            <h2>2. Continuous Integration - Jenkins</h2>
+            <p>Jenkins is an open-source automation server that helps automate building, testing, and deploying code.</p>
+            <ul>
+                <li>Build automation</li>
+                <li>Continuous Integration pipelines</li>
+                <li>Plugin ecosystem</li>
+            </ul>
+        </div>
+
+        <div class="tool-section">
+            <h2>3. Configuration Management - Ansible</h2>
+            <p>Ansible is an open-source software provisioning and configuration management tool.</p>
+            <ul>
+                <li>Agentless architecture</li>
+                <li>YAML-based playbooks</li>
+                <li>SSH-based connectivity</li>
+            </ul>
+        </div>
+
+        <div class="tool-section">
+            <h2>4. Infrastructure as Code - Terraform</h2>
+            <p>Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.</p>
+            <ul>
+                <li>Infrastructure as Code</li>
+                <li>Multi-cloud support</li>
+                <li>State management</li>
+            </ul>
+        </div>
+
+        <div class="tool-section">
+            <h2>5. Containerization - Docker</h2>
+            <p>Docker is a platform for developing, shipping, and running applications in containers.</p>
+            <ul>
+                <li>Container creation and management</li>
+                <li>Dockerfile for image creation</li>
+                <li>Docker Compose for multi-container applications</li>
+            </ul>
+        </div>
+
+        <div class="comments-section">
+            <h2>Comments</h2>
+            <div class="comment-form">
+                <textarea id="commentInput" class="comment-box" placeholder="Add your comment anonymously..."></textarea>
+                <button onclick="addComment()">Post Comment</button>
+            </div>
+            
+            <div id="commentsList" class="comments-list">
+                <div class="comment">
+                    <p>Great introduction to DevOps tools! Would love to see more detailed tutorials.</p>
+                    <small>Posted anonymously - 2 hours ago</small>
+                </div>
+                <div class="comment">
+                    <p>The Terraform section was particularly helpful. Thanks!</p>
+                    <small>Posted anonymously - 5 hours ago</small>
+                </div>
+            </div>
+
+            <script>
+                function addComment() {
+                    // Get the comment text
+                    const commentInput = document.getElementById('commentInput');
+                    const commentText = commentInput.value.trim();
+
+                    // Check if comment is not empty
+                    if (commentText === '') {
+                        alert('Please enter a comment');
+                        return;
+                    }
+
+                    // Create new comment elements
+                    const commentDiv = document.createElement('div');
+                    commentDiv.className = 'comment';
+
+                    const commentP = document.createElement('p');
+                    commentP.textContent = commentText;
+
+                    const timestampSmall = document.createElement('small');
+                    timestampSmall.textContent = 'Posted anonymously - Just now';
+
+                    // Assemble and insert the new comment
+                    commentDiv.appendChild(commentP);
+                    commentDiv.appendChild(timestampSmall);
+
+                    // Add the new comment at the top of the comments list
+                    const commentsList = document.getElementById('commentsList');
+                    commentsList.insertBefore(commentDiv, commentsList.firstChild);
+
+                    // Clear the input field
+                    commentInput.value = '';
+                }
+
+                // Optional: Allow posting comment with Enter key
+                document.getElementById('commentInput').addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        addComment();
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DevOps Learning Portal</p>
+    </footer>
+</body>
+</html>
